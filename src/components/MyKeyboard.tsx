@@ -3,6 +3,7 @@ import Button from "./Button";
 import { View, Text } from "react-native";
 import { Styles } from "../styles/GlobalStyles";
 import { myColors } from "../styles/Colors";
+import "react-native-gesture-handler";
 
 export default function MyKeyboard() {
   const [firstNumber, setFirstNumber] = React.useState("");

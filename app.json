@@ -9,13 +9,18 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": ["battery-monitoring"],
+        "NSBluetoothPeripheralUsageDescription": "This app monitors Bluetooth state changes."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": ["BATTERY_STATS", "BLUETOOTH", "BLUETOOTH_ADMIN"]
     },
     "web": {
       "bundler": "metro",
@@ -32,10 +37,25 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#ffffff",
+          "sounds": ["./assets/sounds/notification-sound.wav"]
+        }
       ]
     ],
     "experiments": {
+      "tsconfigPaths": true,
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    },
+    "entryPoint": "./index.js"
   }
 }
